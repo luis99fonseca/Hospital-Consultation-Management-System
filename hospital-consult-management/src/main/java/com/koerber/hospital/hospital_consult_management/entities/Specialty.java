@@ -12,11 +12,14 @@ public class Specialty {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String name;
+
+    public Specialty() {
+    }
+
     public Specialty(String name) {
         this.name = name;
     }
-
-    private String name;
 
     public Long getId() {
         return id;
