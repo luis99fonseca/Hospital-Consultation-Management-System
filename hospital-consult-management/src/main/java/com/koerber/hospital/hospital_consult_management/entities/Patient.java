@@ -11,6 +11,14 @@ public class Patient extends Person {
         return age;
     }
 
+    public Patient() {
+    }
+
+    public Patient(String name, int age) {
+        super(name);
+        this.age = age;
+    }
+
     public void setAge(int age) {
         this.age = age;
     }

@@ -14,6 +14,13 @@ public class Symptom {
 
     private String name;
 
+    public Symptom() {
+    }
+
+    public Symptom(String name) {
+        this.name = name;
+    }
+
     public Long getId() {
         return id;
     }

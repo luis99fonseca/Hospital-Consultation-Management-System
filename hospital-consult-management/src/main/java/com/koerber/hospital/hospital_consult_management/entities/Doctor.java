@@ -11,6 +11,14 @@ public class Doctor extends Person {
     @JoinColumn(name = "specialty_id")
     private Specialty specialty;
 
+    public Doctor() {
+    }
+
+    public Doctor(String name, Specialty specialty) {
+        super(name);
+        this.specialty = specialty;
+    }
+
     public Specialty getSpecialty() {
         return specialty;
     }

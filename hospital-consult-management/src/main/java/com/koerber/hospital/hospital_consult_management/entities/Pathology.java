@@ -14,6 +14,13 @@ public class Pathology {
 
     private String name;
 
+    public Pathology() {
+    }
+
+    public Pathology(String name) {
+        this.name = name;
+    }
+
     public Long getId() {
         return id;
     }

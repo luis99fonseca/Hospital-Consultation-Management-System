@@ -22,6 +22,14 @@ public class ConsultSymptom {
     @JoinColumn(name = "symptom_id")
     private Symptom symptom;
 
+    public ConsultSymptom() {
+    }
+
+    public ConsultSymptom(Consult consult, Symptom symptom) {
+        this.consult = consult;
+        this.symptom = symptom;
+    }
+
     public Long getId() {
         return id;
     }
