@@ -26,4 +26,12 @@ public class Doctor extends Person {
     public void setSpecialty(Specialty specialty) {
         this.specialty = specialty;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + "Doctor{" +
+                "specialty=" + specialty +
+                '}' + '\'' +
+                '}';
+    }
 }

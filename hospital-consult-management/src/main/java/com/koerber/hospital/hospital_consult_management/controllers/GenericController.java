@@ -15,7 +15,7 @@ public class GenericController {
     @Autowired
     private SpecialtyRepository specialtyRepository;
 
-    @GetMapping("/specialty")
+    @GetMapping("/specialtyOld")
     public List<Specialty> getAllConsults() {
         return specialtyRepository.findAll();
     }

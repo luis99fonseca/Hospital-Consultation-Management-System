@@ -36,4 +36,12 @@ public class Pathology {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "Pathology{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }
