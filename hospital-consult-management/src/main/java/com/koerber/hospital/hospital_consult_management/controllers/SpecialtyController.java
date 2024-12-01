@@ -25,7 +25,7 @@ public class SpecialtyController {
     }
 
     @GetMapping("/specialties/no_patients")
-    public List<SpecialtyPatientDTO> getTopSpecialties(@RequestParam(name = "minPatients") int minPatients) {
-        return specialtyService.getTopSpecialties(minPatients);
+    public List<SpecialtyPatientDTO> getTopSpecialties(@RequestParam(name = "minPatientCount") int minPatientCount) {
+        return specialtyService.getTopSpecialties(minPatientCount);
     }
 }
