@@ -1,23 +1,23 @@
 -- Insert PERSON
-INSERT INTO person (id, name) VALUES (1, 'António');
-INSERT INTO person (id, name) VALUES (2, 'Maria');
-INSERT INTO person (id, name) VALUES (3, 'Carlos');
-INSERT INTO person (id, name) VALUES (4, 'Gabriela');
-INSERT INTO person (id, name) VALUES (5, 'Paulo');
+INSERT INTO person (name) VALUES ('António');
+INSERT INTO person (name) VALUES ('Maria');
+INSERT INTO person (name) VALUES ('Carlos');
+INSERT INTO person (name) VALUES ('Gabriela');
+INSERT INTO person (name) VALUES ('Paulo');
 
-INSERT INTO person (id, name) VALUES (6, 'Manuel');
-INSERT INTO person (id, name) VALUES (7, 'Joana');
-INSERT INTO person (id, name) VALUES (8, 'Ana');
-INSERT INTO person (id, name) VALUES (9, 'Diogo');
-INSERT INTO person (id, name) VALUES (10, 'Catarina');
-INSERT INTO person (id, name) VALUES (11, 'Miguel');
+INSERT INTO person (name) VALUES ('Manuel');
+INSERT INTO person (name) VALUES ('Joana');
+INSERT INTO person (name) VALUES ('Ana');
+INSERT INTO person (name) VALUES ('Diogo');
+INSERT INTO person (name) VALUES ('Catarina');
+INSERT INTO person (name) VALUES ('Miguel');
 
 -- Insert SPECIALTY
-INSERT INTO specialty (id, name) VALUES (1, 'Dermatology');
-INSERT INTO specialty (id, name) VALUES (2, 'Ophthalmology');
-INSERT INTO specialty (id, name) VALUES (3, 'Radiology');
-INSERT INTO specialty (id, name) VALUES (4, 'Family Medicine');
-INSERT INTO specialty (id, name) VALUES (5, 'Pediatrics');
+INSERT INTO specialty (name) VALUES ('Dermatology');
+INSERT INTO specialty (name) VALUES ('Ophthalmology');
+INSERT INTO specialty (name) VALUES ('Radiology');
+INSERT INTO specialty (name) VALUES ('Family Medicine');
+INSERT INTO specialty (name) VALUES ('Pediatrics');
 
 -- Insert PATIENT (inherance from PERSON)
 INSERT INTO patient (id, age) VALUES (6, 53);
@@ -35,30 +35,30 @@ INSERT INTO doctor (id, specialty_id) VALUES (4, 4);  -- Specialty 4 == Family M
 INSERT INTO doctor (id, specialty_id) VALUES (5, 5);  -- Specialty 5 == Pediatrics
 
 -- Insert PATHOLOGY
-INSERT INTO pathology (id, name) VALUES (1, 'Pathology 1');
-INSERT INTO pathology (id, name) VALUES (2, 'Pathology 2');
-INSERT INTO pathology (id, name) VALUES (3, 'Pathology 3');
-INSERT INTO pathology (id, name) VALUES (4, 'Pathology 4');
-INSERT INTO pathology (id, name) VALUES (5, 'Pathology 5');
-INSERT INTO pathology (id, name) VALUES (6, 'Pathology 6');
-INSERT INTO pathology (id, name) VALUES (7, 'Pathology 7');
+INSERT INTO pathology (name) VALUES ('Pathology 1');
+INSERT INTO pathology (name) VALUES ('Pathology 2');
+INSERT INTO pathology (name) VALUES ('Pathology 3');
+INSERT INTO pathology (name) VALUES ('Pathology 4');
+INSERT INTO pathology (name) VALUES ('Pathology 5');
+INSERT INTO pathology (name) VALUES ('Pathology 6');
+INSERT INTO pathology (name) VALUES ('Pathology 7');
 
 -- Insert SYMPTOM
-INSERT INTO symptom (id, name) VALUES (1, 'Symptom 1 Description');
-INSERT INTO symptom (id, name) VALUES (2, 'Symptom 2 Description');
-INSERT INTO symptom (id, name) VALUES (3, 'Symptom 3 Description');
-INSERT INTO symptom (id, name) VALUES (4, 'Symptom 4 Description');
-INSERT INTO symptom (id, name) VALUES (5, 'Symptom 5 Description');
-INSERT INTO symptom (id, name) VALUES (6, 'Symptom 6 Description');
-INSERT INTO symptom (id, name) VALUES (7, 'Symptom 7 Description');
-INSERT INTO symptom (id, name) VALUES (8, 'Symptom 8 Description');
-INSERT INTO symptom (id, name) VALUES (9, 'Symptom 9 Description');
-INSERT INTO symptom (id, name) VALUES (10, 'Symptom 10 Description');
-INSERT INTO symptom (id, name) VALUES (11, 'Symptom 11 Description');
-INSERT INTO symptom (id, name) VALUES (12, 'Symptom 12 Description');
-INSERT INTO symptom (id, name) VALUES (13, 'Symptom 13 Description');
-INSERT INTO symptom (id, name) VALUES (14, 'Symptom 14 Description');
-INSERT INTO symptom (id, name) VALUES (15, 'Symptom 15 Description');
+INSERT INTO symptom (name) VALUES ('Symptom 1 Description');
+INSERT INTO symptom (name) VALUES ('Symptom 2 Description');
+INSERT INTO symptom (name) VALUES ('Symptom 3 Description');
+INSERT INTO symptom (name) VALUES ('Symptom 4 Description');
+INSERT INTO symptom (name) VALUES ('Symptom 5 Description');
+INSERT INTO symptom (name) VALUES ('Symptom 6 Description');
+INSERT INTO symptom (name) VALUES ('Symptom 7 Description');
+INSERT INTO symptom (name) VALUES ('Symptom 8 Description');
+INSERT INTO symptom (name) VALUES ('Symptom 9 Description');
+INSERT INTO symptom (name) VALUES ( 'Symptom 10 Description');
+INSERT INTO symptom (name) VALUES ( 'Symptom 11 Description');
+INSERT INTO symptom (name) VALUES ( 'Symptom 12 Description');
+INSERT INTO symptom (name) VALUES ( 'Symptom 13 Description');
+INSERT INTO symptom (name) VALUES ( 'Symptom 14 Description');
+INSERT INTO symptom (name) VALUES ( 'Symptom 15 Description');
 
 -- Insert PATHOLOGY_SYMPTOM
 INSERT INTO pato_symp (pathology_id, symptom_id) VALUES (1, 1);  -- Pathology 1 -> Symptom 1 Description
