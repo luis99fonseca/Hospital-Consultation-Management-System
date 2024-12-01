@@ -3,26 +3,41 @@ package com.koerber.hospital.hospital_consult_management.dto;
 public class SpecialtyPatientDTO{
 
     private String specialtyName;
-    private int numberOfPatients;
+    private int id;
+    private long numberOfPatients;
 
     public SpecialtyPatientDTO(String specialtyName, int numberOfPatients) {
         this.specialtyName = specialtyName;
         this.numberOfPatients = numberOfPatients;
     }
 
-    public String getSpecialtyName() {
+    public SpecialtyPatientDTO(int id, String specialtyName, Long numberOfPatients) {
+        this.id = id;
+        this.specialtyName = specialtyName;
+        this.numberOfPatients = numberOfPatients;
+    }
+
+    public String getSpecialty() {
         return specialtyName;
     }
 
-    public void setSpecialtyName(String specialtyName) {
-        this.specialtyName = specialtyName;
+    public void setSpecialty(String specialty) {
+        this.specialtyName = specialty;
     }
 
-    public int getNumberOfPatients() {
+    public long getNumberOfPatients() {
         return numberOfPatients;
     }
 
-    public void setNumberOfPatients(int numberOfPatients) {
+    public void setNumberOfPatients(long numberOfPatients) {
         this.numberOfPatients = numberOfPatients;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

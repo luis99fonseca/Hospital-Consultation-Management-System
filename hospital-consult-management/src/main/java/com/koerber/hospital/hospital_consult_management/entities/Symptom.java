@@ -36,4 +36,12 @@ public class Symptom {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "Symptom{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

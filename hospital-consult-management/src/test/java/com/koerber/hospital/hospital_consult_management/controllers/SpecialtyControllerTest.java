@@ -1,6 +1,5 @@
-package com.koerber.hospital.hospital_consult_management.repository;
+package com.koerber.hospital.hospital_consult_management.controllers;
 
-import com.koerber.hospital.hospital_consult_management.controllers.SpecialtyController;
 import com.koerber.hospital.hospital_consult_management.dto.SpecialtyPatientDTO;
 import com.koerber.hospital.hospital_consult_management.entities.Specialty;
 import com.koerber.hospital.hospital_consult_management.services.SpecialtyService;
@@ -58,7 +57,7 @@ public class SpecialtyControllerTest {
         when(specialtyService.getTopSpecialties(3)).thenReturn(List.of(specialtyPatientDTO));
 
         // Perform GET request and validate the response
-        mockMvc.perform(get("/specialties/no_patients?minPatients=3"))
+        mockMvc.perform(get("/specialties/no_patients?minPatientCount=3"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].specialtyName").value("Ophthalmology"))
                 .andExpect(jsonPath("$[0].numberOfPatients").value(3));

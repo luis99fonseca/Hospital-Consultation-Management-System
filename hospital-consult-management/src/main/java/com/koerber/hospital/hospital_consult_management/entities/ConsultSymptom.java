@@ -1,24 +1,24 @@
 package com.koerber.hospital.hospital_consult_management.entities;
 
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.MapsId;
 
 @Entity
 public class ConsultSymptom {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @EmbeddedId
+    private ConsultSymptomId id;
 
     @ManyToOne
+    @MapsId("consultId")
     @JoinColumn(name = "consult_id")
     private Consult consult;
 
     @ManyToOne
+    @MapsId("symptomId")
     @JoinColumn(name = "symptom_id")
     private Symptom symptom;
 
@@ -28,13 +28,14 @@ public class ConsultSymptom {
     public ConsultSymptom(Consult consult, Symptom symptom) {
         this.consult = consult;
         this.symptom = symptom;
+        this.id = new ConsultSymptomId(consult.getId(), symptom.getId());
     }
 
-    public Long getId() {
+    public ConsultSymptomId getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(ConsultSymptomId id) {
         this.id = id;
     }
 
