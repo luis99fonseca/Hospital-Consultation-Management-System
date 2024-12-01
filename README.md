@@ -23,6 +23,9 @@ Hospital-Consultation-Management-System/
 └── stop_compose.sh                 # Script to stop the application
 ```
 
+### Database Schema
+![img.png](readme-files/dbschema.png)
+
 ## How to Run
 A script named `build_and_run.sh` was created to handle the building of the Docker images and then start them as containers. To run this project, you only need to run this script.
 
