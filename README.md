@@ -32,7 +32,8 @@ A script named `build_and_run.sh` was created to handle the building of the Dock
 
 #### How to Stop
 To stop the entire application, simply run the script `stop_compose.sh`.
-**NOTE: ** Simply pressing CTRL+C is not enough to stop the application. This script SHALL be run.
+
+**NOTE:** Simply pressing CTRL+C is not enough to stop the application. This script SHALL be run.
 
 ### Endpoints
 #### Swagger
