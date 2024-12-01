@@ -53,6 +53,15 @@ Even though it was not stated explicitly, by my own interpretation, I considered
 
 Since it was not explicitly stated, when creating a Consult (an entity that associates 3 others: Doctor, Patient, and Pathology) — although in the POST request itself another entity can be issued (Symptoms) — if these entities do not exist, they are created instead.
 
+For the point **Get top specialties**, I decided to make the endpoint generic to the point of being able to return the top Specialties above any given threshold (and not only 2). Note that with the available dataset, the only Specialties above 1 that will be shown will still be "Ophthalmology".
+
+Even though I had time limitations (as stated below), I tried to make the most of the time I had and decided to create an extra functionality for caching, namely caching the list of Specialties with the most patients (see the previous paragraph). Here the implementation is obviously lackluster, in the sense that it could never be deployed to production as is for a range of reasons:
+
+  - Memory limits: In a real environment, loading a huge part of a database to memory is not feasible. It could lead to performance degradation or even application crashes if the data size exceeds the memory limits.
+  - Persistence: If the application stops or fails, there is no backup for the cache. This means the cache would need to be rebuilt, adding unnecessary overhead and potential downtime.
+  - Functionality: As it was implemented, its usefulness is dubious at best, as storing a single threshold is not very practical. A more robust solution would support multiple thresholds.
+  - Implementation: There are multiple tools (within or outside of Spring Boot) that would allow for building a caching mechanism more seamlessly and efficiently, such as using Redis or Spring’s built-in caching capabilities.
+What I am trying to say is that, while I am aware of these limitations, in the scope of this challenge and with the time I had, I decided to implement this little functionality "for fun."
 ### Limitations
 Due to time constraints, several points were impacted, namely:
 
