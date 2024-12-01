@@ -1,5 +1,6 @@
 package com.koerber.hospital.hospital_consult_management.services;
 
+import com.koerber.hospital.hospital_consult_management.cache.SpecialtiesCache;
 import com.koerber.hospital.hospital_consult_management.dto.SpecialtyPatientDTO;
 import com.koerber.hospital.hospital_consult_management.entities.Specialty;
 import com.koerber.hospital.hospital_consult_management.repos.SpecialtyRepository;
@@ -14,25 +15,22 @@ public class SpecialtyService {
 
     @Autowired
     private SpecialtyRepository specialtyRepository;
-
-    private int lastMinPatientCount = 0;
-    private List<SpecialtyPatientDTO> cache_specialties;
+    @Autowired
+    SpecialtiesCache specialtiesCache;
 
     public List<Specialty> findAll(){
         return specialtyRepository.findAll();
     }
 
     public List<SpecialtyPatientDTO> getTopSpecialties(int minPatientCount) {
-        if (minPatientCount == lastMinPatientCount && !cache_specialties.isEmpty()){
-            System.out.println("CACHED");
-            return cache_specialties;
+        List<SpecialtyPatientDTO> specialtyPatientDTOList = specialtiesCache.getCachedSpecialties(minPatientCount);
+        if (specialtyPatientDTOList != null){
+            return specialtyPatientDTOList;
         }
-        System.out.println("NOT CACHED");
 
         List<Object[]> results = specialtyRepository.getTopSpecialtiesRaw(minPatientCount);
 
-        cache_specialties = new ArrayList<>();
-        lastMinPatientCount = minPatientCount;
+        specialtyPatientDTOList = new ArrayList<>();
 
         for (Object[] result : results) {
             Integer id = (Integer) result[0];
@@ -40,9 +38,10 @@ public class SpecialtyService {
             Long numberOfPatients = ((Number) result[2]).longValue();
 
             SpecialtyPatientDTO dto = new SpecialtyPatientDTO(id, specialtyName, numberOfPatients);
-            cache_specialties.add(dto);
+            specialtyPatientDTOList.add(dto);
         }
+        specialtiesCache.updateCachedSpecialties(specialtyPatientDTOList, minPatientCount);
 
-        return cache_specialties;
+        return specialtyPatientDTOList;
     }
 }
