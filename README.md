@@ -42,17 +42,24 @@ You can check the REST API's endpoints by accessing the page: http://localhost:8
 #### Interaction
 Interaction with the system is done by issuing REST API requests to the application at the `http://localhost:8080` endpoint. Examples of requests can be found in the `example_requests/` folder. This folder contains files with sample cURL commands that are ready to be executed, as well as a Postman-ready JSON file that can be imported for the same purpose.
 
-
 ### Development
 Development was done using Git, specifically GitHub, in a feature-branch-based style of development. An overview of the network can be found at Insights/Network.
 ![img.png](readme-files/img.png)
 **Note:** The image does not show the final iteration.
+#### Thouth Process
+Although initially I was torn between using a document-based DB solution or a SQL-based solution, ultimately the number of relationships between the entities and their possible queries led me to choose the SQL-based solution. Additionally, although some restrictions on the requirements were set (like the existence of only 5 specialties), I designed this solution with the goal of making it as generic and expandable as possible, so that future requirements would require minimal effort.
+
+Even though it was not stated explicitly, by my own interpretation, I considered that a given symptom (e.g., fever) could be associated with multiple pathologies. Hence, I created a specific Pathology_Symptom table to represent this thought process. This would allow the system to retrieve all pathologies given a set of symptoms. Note, however, that the specific code for this scenario was not implemented, but a future need for it would require little effort.
+
+Since it was not explicitly stated, when creating a Consult (an entity that associates 3 others: Doctor, Patient, and Pathology) — although in the POST request itself another entity can be issued (Symptoms) — if these entities do not exist, they are created instead.
 
 ### Limitations
-Due to time constraints, there were several points that were impacted, namely:
+Due to time constraints, several points were impacted, namely:
+
 - Test coverage: The number of (unit) tests developed was reduced and only covers the core parts of the code. Therefore, scenarios like edge cases were not considered, and as the project's size increased, test development was halted to meet the developer's time constraints.
   - Integration tests: Although it wasn't required for the project initially, integration tests (IT tests) would be very important to ensure the quality and robustness of the code.
-  - Performance tests: Not created either.
-- Log centralization: Was not integrated due to time constraints.
+  - Performance tests: These were not created either.
+- Log centralization: This was not integrated due to time constraints.
 - Customization: Since it was out of the project's scope, there is no customization for either service regarding variables (ports, credentials, etc.).
-- Profiles: Due to issues in profile configuration, this functionally was not fully employed.
+- Profiles: Due to issues with profile configuration, this functionality was not fully employed.
+- Error handling: No error handling was implemented to make the most of the time available.
