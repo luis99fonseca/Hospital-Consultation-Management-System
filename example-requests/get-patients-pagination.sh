@@ -1,0 +1,1 @@
+curl --location 'localhost:8080/patients?page=0&size=5&sortByParam=age'

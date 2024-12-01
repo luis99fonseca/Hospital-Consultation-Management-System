@@ -1,5 +1,6 @@
 package com.koerber.hospital.hospital_consult_management.services;
 
+import com.koerber.hospital.hospital_consult_management.cache.SpecialtiesCache;
 import com.koerber.hospital.hospital_consult_management.dto.SpecialtyPatientDTO;
 import com.koerber.hospital.hospital_consult_management.entities.Patient;
 import com.koerber.hospital.hospital_consult_management.repos.PatientRepository;
@@ -29,6 +30,8 @@ public class SpecialtyServiceTest {
 
     @Mock
     private SpecialtyRepository specialtyRepository;
+    @Mock
+    private SpecialtiesCache specialtiesCache;
 
     @InjectMocks
     private SpecialtyService specialtyService;
@@ -46,7 +49,7 @@ public class SpecialtyServiceTest {
 
         // Mock repository method
         when(specialtyRepository.getTopSpecialtiesRaw(minPatientCount)).thenReturn(mockResults);
-
+        when(specialtiesCache.getCachedSpecialties(minPatientCount)).thenReturn(null);
 
         // Call the method in the service
         List<SpecialtyPatientDTO> topSpecialties = specialtyService.getTopSpecialties(minPatientCount);

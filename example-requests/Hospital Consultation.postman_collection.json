@@ -1,0 +1,160 @@
+{
+	"info": {
+		"_postman_id": "f958149c-9a23-4933-874f-a4a05fc409c8",
+		"name": "Hospital Consultation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34929990"
+	},
+	"item": [
+		{
+			"name": "GET Specialties",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/specialties",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"specialties"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Consults",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/consults",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"consults"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Top Specialties",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "GET Patients Pagination",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/patients?page=0&size=5&sortByParam=age",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"patients"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "5"
+						},
+						{
+							"key": "sortByParam",
+							"value": "age"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Consult",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"doctor\": {\n            \"id\": null,\n            \"name\": \"António Novo\",\n            \"specialty\": {\n                \"id\": null,\n                \"name\": \"Dermatology New\"\n            }\n        },\n        \"id\": null,\n        \"pathology\": {\n            \"id\": null,\n            \"name\": \"Pathology 1 New\"\n        },\n        \"patient\": {\n            \"age\": 53,\n            \"id\": null,\n            \"name\": \"Manuel\"\n        },\n        \"symptoms\": [\n            {\"name\": \"Symptom 1 Description\"},\n            {\"name\": \"Symptom 2 Description\"}\n        ]\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/consults",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"consults"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Consult - existing Doctor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"doctor\": {\n            \"id\": 3,\n            \"specialty\": {\n                \"id\": 2\n            }\n        },\n        \"id\": null,\n        \"pathology\": {\n            \"id\": null,\n            \"name\": \"Pathology 1 New\"\n        },\n        \"patient\": {\n            \"age\": 53,\n            \"id\": null,\n            \"name\": \"Manuel\"\n        },\n        \"symptoms\": [\n            {\"name\": \"Symptom 1 Description\"},\n            {\"name\": \"Symptom 2 Description\"}\n        ]\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/consults",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"consults"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Patients History",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/patients/6/history",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"patients",
+						"6",
+						"history"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

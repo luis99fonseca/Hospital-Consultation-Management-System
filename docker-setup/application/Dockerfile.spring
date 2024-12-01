@@ -1,0 +1,9 @@
+FROM openjdk:17-jdk-slim
+
+WORKDIR /app
+
+COPY "../../hospital-consult-management/target/hospital-consult-management-1.0.0.jar" "/app/hospital-consult-management-1.0.0.jar"
+
+EXPOSE 8080
+
+ENTRYPOINT ["java", "-jar", "hospital-consult-management-1.0.0.jar"]
