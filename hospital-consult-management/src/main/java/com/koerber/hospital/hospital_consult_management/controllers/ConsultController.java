@@ -28,7 +28,7 @@ public class ConsultController {
 
     @PostMapping("/consults")
     public ResponseEntity<Consult> createConsult(@RequestBody ConsultDTO consultDTO){
-        System.out.println("CONSULT: " + consultDTO);
+        System.out.println("CONSULT: " + consultDTO); // TODO: remover
         return consultService.createConsult(consultDTO);
     }
 }

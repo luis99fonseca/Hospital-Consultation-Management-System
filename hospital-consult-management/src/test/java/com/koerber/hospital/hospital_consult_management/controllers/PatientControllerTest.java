@@ -1,9 +1,6 @@
-package com.koerber.hospital.hospital_consult_management.repository;
+package com.koerber.hospital.hospital_consult_management.controllers;
 
-import com.koerber.hospital.hospital_consult_management.controllers.PatientController;
-import com.koerber.hospital.hospital_consult_management.controllers.SpecialtyController;
 import com.koerber.hospital.hospital_consult_management.dto.ConsultsSymptomsDTO;
-import com.koerber.hospital.hospital_consult_management.dto.SpecialtyPatientDTO;
 import com.koerber.hospital.hospital_consult_management.entities.Consult;
 import com.koerber.hospital.hospital_consult_management.entities.ConsultSymptom;
 import com.koerber.hospital.hospital_consult_management.entities.Doctor;
@@ -13,18 +10,15 @@ import com.koerber.hospital.hospital_consult_management.entities.Specialty;
 import com.koerber.hospital.hospital_consult_management.entities.Symptom;
 import com.koerber.hospital.hospital_consult_management.services.PatientService;
 import org.junit.jupiter.api.Test;
-import org.mockito.stubbing.Answer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 

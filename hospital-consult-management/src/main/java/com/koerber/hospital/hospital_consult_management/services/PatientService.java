@@ -18,10 +18,7 @@ public class PatientService {
     private PatientRepository patientRepository;
 
     public Page<Patient> getPatients(Pageable pageable){
-        return null;
-        //return patientRepository.findAll(pageable);
-/*        Page<Patient> patientPage = patientRepository.findAll(pageable);
-        return patientPage.map(patient -> new Patient(patient));*/
+        return patientRepository.findAll(pageable);
     }
 
     public Optional<Patient> findById(Long id) {
