@@ -1,5 +1,6 @@
 package com.koerber.hospital.hospital_consult_management.services;
 
+import com.koerber.hospital.hospital_consult_management.cache.SpecialtiesCache;
 import com.koerber.hospital.hospital_consult_management.dto.ConsultDTO;
 import com.koerber.hospital.hospital_consult_management.entities.Consult;
 import com.koerber.hospital.hospital_consult_management.entities.ConsultSymptom;
@@ -39,6 +40,9 @@ public class ConsultService {
     private SymptomRepository symptomRepository;
     @Autowired
     private ConsultSymptomRepository consultSymptomRepository;
+
+    @Autowired
+    SpecialtiesCache specialtiesCache;
 
     @Transactional(rollbackFor = Exception.class)  // Rollback on all exceptions
     public ResponseEntity<Consult> createConsult(ConsultDTO consultDTO) {
@@ -139,6 +143,7 @@ public class ConsultService {
             ConsultSymptom consultSymptom = new ConsultSymptom(savedConsult, symptom);
             consultSymptomRepository.save(consultSymptom);
         }
+        specialtiesCache.refreshCache();
 
         return ResponseEntity.ok(savedConsult);
     }
