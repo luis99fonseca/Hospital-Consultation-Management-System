@@ -1,6 +1,5 @@
-package com.koerber.hospital.hospital_consult_management.repository;
+package com.koerber.hospital.hospital_consult_management.controllers;
 
-import com.koerber.hospital.hospital_consult_management.controllers.SpecialtyController;
 import com.koerber.hospital.hospital_consult_management.dto.SpecialtyPatientDTO;
 import com.koerber.hospital.hospital_consult_management.entities.Specialty;
 import com.koerber.hospital.hospital_consult_management.services.SpecialtyService;

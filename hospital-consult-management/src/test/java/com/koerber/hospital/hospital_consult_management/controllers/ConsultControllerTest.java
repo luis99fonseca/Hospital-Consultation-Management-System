@@ -1,6 +1,5 @@
-package com.koerber.hospital.hospital_consult_management.repository;
+package com.koerber.hospital.hospital_consult_management.controllers;
 
-import com.koerber.hospital.hospital_consult_management.controllers.ConsultController;
 import com.koerber.hospital.hospital_consult_management.dto.ConsultDTO;
 import com.koerber.hospital.hospital_consult_management.entities.Consult;
 import com.koerber.hospital.hospital_consult_management.entities.Doctor;
@@ -16,7 +15,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
