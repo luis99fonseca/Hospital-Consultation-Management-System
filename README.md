@@ -55,3 +55,4 @@ Due to time constraints, there were several points that were impacted, namely:
   - Performance tests: Not created either.
 - Log centralization: Was not integrated due to time constraints.
 - Customization: Since it was out of the project's scope, there is no customization for either service regarding variables (ports, credentials, etc.).
+- Profiles: Due to issues in profile configuration, this functionally was not fully employed.
