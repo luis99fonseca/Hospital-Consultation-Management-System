@@ -4,7 +4,7 @@ COPY scripts/01-create-tables.sql /docker-entrypoint-initdb.d/
 COPY scripts/02-insert-data.sql /docker-entrypoint-initdb.d/
 
 ENV POSTGRES_USER=hospuser
-ENV POSTGRES_PASSWORD=hostname
+ENV POSTGRES_PASSWORD=hosppass
 ENV POSTGRES_DB=hospital_database
 
 EXPOSE 5432

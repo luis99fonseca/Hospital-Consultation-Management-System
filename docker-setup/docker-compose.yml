@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: hospital_postgres
+    container_name: hospital_postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - hospital_network
+    restart: unless-stopped
+
+  springboot:
+    image: hospital-consult-management
+    container_name: hospital_springboot
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/hospital_database
+    ports:
+      - "8080:8080"
+    networks:
+      - hospital_network
+    restart: unless-stopped
+
+networks:
+  hospital_network:
+    driver: bridge

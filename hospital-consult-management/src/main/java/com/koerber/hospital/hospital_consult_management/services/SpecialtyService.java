@@ -16,7 +16,7 @@ public class SpecialtyService {
     @Autowired
     private SpecialtyRepository specialtyRepository;
     @Autowired
-    SpecialtiesCache specialtiesCache;
+    private SpecialtiesCache specialtiesCache;
 
     public List<Specialty> findAll(){
         return specialtyRepository.findAll();

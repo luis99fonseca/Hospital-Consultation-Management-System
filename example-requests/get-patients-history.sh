@@ -1,0 +1,1 @@
+curl --location 'localhost:8080/patients/6/history'

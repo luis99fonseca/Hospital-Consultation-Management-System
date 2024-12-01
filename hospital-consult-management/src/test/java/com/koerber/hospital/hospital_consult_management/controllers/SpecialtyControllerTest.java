@@ -59,7 +59,7 @@ public class SpecialtyControllerTest {
         // Perform GET request and validate the response
         mockMvc.perform(get("/specialties/no_patients?minPatientCount=3"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].specialtyName").value("Ophthalmology"))
+                .andExpect(jsonPath("$[0].specialty").value("Ophthalmology"))
                 .andExpect(jsonPath("$[0].numberOfPatients").value(3));
 
         // Verify service interaction
