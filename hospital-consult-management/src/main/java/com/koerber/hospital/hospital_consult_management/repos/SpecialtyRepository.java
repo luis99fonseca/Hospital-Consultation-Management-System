@@ -18,13 +18,4 @@ public interface SpecialtyRepository extends JpaRepository<Specialty, Long> {
                    "GROUP BY s.id " +
                    "HAVING COUNT(DISTINCT p.id) > :minPatientCount", nativeQuery = true)
     List<Object[]> getTopSpecialtiesRaw(@Param("minPatientCount") int minPatientCount);
-
-/*    @Query("SELECT new com.koerber.hospital.hospital_consult_management.dto.SpecialtyPatientDTO(s.id, s.name, COUNT(DISTINCT p.id)) " +
-           "FROM Specialty s " +
-           "JOIN Doctor d ON d.specialty = s " +
-           "JOIN Consult c ON c.doctor = d " +
-           "JOIN Patient p ON p = c.patient " +
-           "GROUP BY s.id " +
-           "HAVING COUNT(DISTINCT p.id) > :minPatientCount")
-    List<SpecialtyPatientDTO> getTopSpecialties(@Param("minPatientCount") int minPatientCount);*/
 }

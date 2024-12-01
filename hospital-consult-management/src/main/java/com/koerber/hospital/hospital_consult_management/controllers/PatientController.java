@@ -45,6 +45,7 @@ public class PatientController {
         Optional<Patient> patient = patientService.findById(id);
 
         if (patient.isEmpty()) {
+            System.out.println("LUIS");
             return ResponseEntity.notFound().build();
         }
 
