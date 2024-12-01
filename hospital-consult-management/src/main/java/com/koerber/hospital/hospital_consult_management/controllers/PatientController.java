@@ -5,6 +5,8 @@ import com.koerber.hospital.hospital_consult_management.entities.Consult;
 import com.koerber.hospital.hospital_consult_management.entities.Patient;
 import com.koerber.hospital.hospital_consult_management.repos.ConsultRepository;
 import com.koerber.hospital.hospital_consult_management.services.PatientService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -24,6 +26,8 @@ import java.util.Optional;
 @RestController
 public class PatientController {
 
+    private static final Logger logger = LoggerFactory.getLogger(PatientController.class);
+
     @Autowired
     private PatientService patientService;
 
@@ -33,7 +37,7 @@ public class PatientController {
             @RequestParam(defaultValue = "10") int size,
             @RequestParam(defaultValue = "name") String sortByParam,
             @RequestParam(defaultValue = "true") boolean ascending) {
-
+        logger.info("Request GET at /patients");
         Sort sort = ascending ? Sort.by(sortByParam).ascending() : Sort.by(sortByParam).descending();
 
         Pageable pageRequest = PageRequest.of(page, size, sort);
@@ -42,9 +46,11 @@ public class PatientController {
 
     @GetMapping("/patients/{id}/history")
     public ResponseEntity<ConsultsSymptomsDTO> getPatientHistory(@PathVariable Long id) {
+        logger.info("Request GET at /patients/" + id + "/history");
         Optional<Patient> patient = patientService.findById(id);
 
         if (patient.isEmpty()) {
+            logger.error("Patient with ID='" + id + "' not found");
             return ResponseEntity.notFound().build();
         }
 

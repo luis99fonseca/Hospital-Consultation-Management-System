@@ -12,6 +12,7 @@ public class ConsultDTO {
 
     private Pathology pathology;
 
+
     public Doctor getDoctor() {
         return doctor;
     }
