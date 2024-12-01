@@ -22,7 +22,6 @@ import java.util.Collections;
 import java.util.List;
 
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -117,38 +116,6 @@ public class ConsultControllerTest {
 
         // Verify service interaction
         verify(consultService, times(1)).createConsult(any(ConsultDTO.class));
-    }
-
-    @Test
-    public void testPostConsult_error() throws Exception { // TODO
-/*        // Mock data
-        Specialty specialty1 = new Specialty("Dermatology");
-
-        Doctor doctor = new Doctor("António", specialty1);
-        Patient patient = new Patient("Manuel", 53);
-
-        Pathology pathology = new Pathology("Pathology 1");
-
-        Consult consult0 = new Consult(doctor, patient, pathology);
-
-        String json_payload = new String(Files.readAllBytes(Paths.get("src/test/resources/files/postConsult_success.json")));
-
-        // Mock service method
-        when(consultService.createConsult(any(ConsultDTO.class))).thenReturn(ResponseEntity.status(HttpStatus.CREATED).body(consult0));
-
-        // Perform POST request and validate the response
-        mockMvc.perform(post("/consults")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(json_payload))
-                .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.doctor.name").value("António"))
-                .andExpect(jsonPath("$.doctor.specialty.name").value("Dermatology"))
-                .andExpect(jsonPath("$.patient.name").value("Manuel"))
-                .andExpect(jsonPath("$.patient.age").value(53))
-                .andExpect(jsonPath("$.pathology.name").value("Pathology 1"));
-
-        // Verify service interaction
-        verify(consultService, times(1)).createConsult(any(ConsultDTO.class));*/
     }
 
 }

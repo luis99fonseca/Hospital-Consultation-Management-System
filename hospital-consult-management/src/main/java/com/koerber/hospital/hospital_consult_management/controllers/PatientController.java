@@ -1,9 +1,7 @@
 package com.koerber.hospital.hospital_consult_management.controllers;
 
 import com.koerber.hospital.hospital_consult_management.dto.ConsultsSymptomsDTO;
-import com.koerber.hospital.hospital_consult_management.entities.Consult;
 import com.koerber.hospital.hospital_consult_management.entities.Patient;
-import com.koerber.hospital.hospital_consult_management.repos.ConsultRepository;
 import com.koerber.hospital.hospital_consult_management.services.PatientService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,8 +16,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.Optional;
 
 
@@ -55,6 +51,5 @@ public class PatientController {
         }
 
         return patientService.getPatientHistory(id);
-        //return ResponseEntity.ok(patient);
     }
 }
