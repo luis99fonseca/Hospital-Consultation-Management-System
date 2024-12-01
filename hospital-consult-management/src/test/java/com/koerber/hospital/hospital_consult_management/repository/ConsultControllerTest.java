@@ -55,7 +55,7 @@ public class ConsultControllerTest {
         Consult consult0 = new Consult(doctor, patient, pathology);
         Consult consult1 = new Consult(doctor, patient, new Pathology("Pathology 2"));
 
-        // Mock repository method
+        // Mock service method
         when(consultService.findAll()).thenReturn(List.of(consult0, consult1));
 
         // Perform GET request and validate the response
@@ -76,7 +76,7 @@ public class ConsultControllerTest {
 
     @Test
     public void testGetAllConsults_emptyList_success() throws Exception {
-        // Mock repository method
+        // Mock service method
         when(consultService.findAll()).thenReturn(Collections.emptyList());
 
         // Perform GET request and validate the response
@@ -103,7 +103,7 @@ public class ConsultControllerTest {
 
         String json_payload = new String(Files.readAllBytes(Paths.get("src/test/resources/files/postConsult_success.json")));
 
-        // Mock repository method
+        // Mock service method
         when(consultService.createConsult(any(ConsultDTO.class))).thenReturn(ResponseEntity.status(HttpStatus.CREATED).body(consult0));
 
         // Perform POST request and validate the response
@@ -135,7 +135,7 @@ public class ConsultControllerTest {
 
         String json_payload = new String(Files.readAllBytes(Paths.get("src/test/resources/files/postConsult_success.json")));
 
-        // Mock repository method
+        // Mock service method
         when(consultService.createConsult(any(ConsultDTO.class))).thenReturn(ResponseEntity.status(HttpStatus.CREATED).body(consult0));
 
         // Perform POST request and validate the response

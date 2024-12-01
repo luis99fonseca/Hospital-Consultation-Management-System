@@ -36,7 +36,7 @@ public class GenericControllerTest {
         Specialty specialty2 = new Specialty("Ophthalmology");
         List<Specialty> specialties = Arrays.asList(specialty1, specialty2);
 
-        // Mock repository method
+        // Mock service method
         when(specialtyRepository.findAll()).thenReturn(specialties);
 
         // Perform GET request and validate the response

@@ -30,13 +30,13 @@ public class SpecialtyControllerTest {
     private SpecialtyService specialtyService;
 
     @Test
-    public void testGetAllSpecialties() throws Exception {
+    public void testGetAllSpecialties_success() throws Exception {
         // Mock data
         Specialty specialty1 = new Specialty("Dermatology");
         Specialty specialty2 = new Specialty("Ophthalmology");
         List<Specialty> specialties = Arrays.asList(specialty1, specialty2);
 
-        // Mock repository method
+        // Mock service method
         when(specialtyService.findAll()).thenReturn(specialties);
 
         // Perform GET request and validate the response
@@ -50,11 +50,11 @@ public class SpecialtyControllerTest {
     }
 
     @Test
-    public void testGetTopSpecialties() throws Exception {
+    public void testGetTopSpecialties_success() throws Exception {
         // Mock data
         SpecialtyPatientDTO specialtyPatientDTO = new SpecialtyPatientDTO("Ophthalmology", 3);
 
-        // Mock repository method
+        // Mock service method
         when(specialtyService.getTopSpecialties(3)).thenReturn(List.of(specialtyPatientDTO));
 
         // Perform GET request and validate the response
