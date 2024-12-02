@@ -75,3 +75,4 @@ Due to time constraints, several points were impacted, namely:
 - Customization: Since it was out of the project's scope, there is no customization for either service regarding variables (ports, credentials, etc.).
 - Profiles: Due to issues with profile configuration, this functionality was not fully employed.
 - Error handling: No error handling was implemented to make the most of the time available.
+- Image tagging: To better manage image versions, it would be more convenient if images were properly tagged.
